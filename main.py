@@ -44,7 +44,7 @@ def tree_to_prufer(tree: nx.Graph) -> list[int]:
 
 
 def prufer_to_tree(prufer: list[int]) -> nx.Graph:
-    n = len(prufer) + 2  # O(n-2) = O(n)
+    n = len(prufer) + 2  # O(1)
     tree = nx.Graph()
     nodes = [number for number in range(n)]  # O(n)
     tree.add_nodes_from(nodes)
