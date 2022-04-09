@@ -19,16 +19,17 @@ def Linear_Tree_to_Prufer(tree: nx.Graph):
 
     # Construcción de la lista f tal que f[v] es el vértice padre del nodo v
     f = [-2] * n
-    f[n-1] = -1
-    nodes_of_the_level = [n-1]
-    while nodes_of_the_level:
-        aux = nodes_of_the_level.copy()
-        nodes_of_the_level = []
-        for i in aux:
+    f[n-1] = -1    # Root
+    level_nodes = [n-1]
+    while len(level_nodes) != 0:
+        list_aux = level_nodes.copy()
+        level_nodes = list()
+        for i in list_aux:
             for j in tree.neighbors(i):
                 if f[j] == -2:
                     f[j] = i
-                    nodes_of_the_level.append(j)
+                    level_nodes.append(j)
+
 
     x = min(leaves)
     index = x
